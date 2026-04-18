@@ -1,0 +1,304 @@
+SRISHTI SPHERICAL DATABASE — COMMAND REFERENCE
+================================================================
+Four databases. Four partitions. One geometry.
+
+Dr. K.S. Venkatesh — Chennai — GNU GPL 3.0
+phi = 1.6180339887498948482...
+================================================================
+
+PARTITION TO DATABASE MAPPING
+================================================================
+DATA 1    (internal HDD)          -->  ~/srishti1.db
+DATA3     (external, Maya library) -->  ~/srishti3.db
+VENKAT1   (external, large)        -->  ~/srishti2.db
+WINDATA   (external, Windows data) -->  ~/srishti4.db
+
+
+BUILD DATABASES FROM SCRATCH (first time only)
+================================================================
+
+python3 ~/srishti/aria_setup.py "/media/venkatesh/DATA 1" --db ~/srishti1.db
+
+python3 ~/srishti/aria_setup.py /media/venkatesh/DATA3 --db ~/srishti3.db
+
+python3 ~/srishti/aria_setup.py /media/venkatesh/VENKAT1 --db ~/srishti2.db
+
+python3 ~/srishti/aria_setup.py /media/venkatesh/WINDATA --db ~/srishti4.db
+
+
+INCREMENTAL — UPDATE ENTIRE PARTITION (new files only, nothing disturbed)
+================================================================
+
+python3 ~/srishti/aria_setup.py "/media/venkatesh/DATA 1" --db ~/srishti1.db --incremental
+
+python3 ~/srishti/aria_setup.py /media/venkatesh/DATA3 --db ~/srishti3.db --incremental
+
+python3 ~/srishti/aria_setup.py /media/venkatesh/VENKAT1 --db ~/srishti2.db --incremental
+
+python3 ~/srishti/aria_setup.py /media/venkatesh/WINDATA --db ~/srishti4.db --incremental
+
+
+INCREMENTAL — ADD A SINGLE FOLDER TO DB
+================================================================
+
+python3 ~/srishti/aria_setup.py "/media/venkatesh/DATA 1/Chemistry" --db ~/srishti1.db --incremental
+
+python3 ~/srishti/aria_setup.py /media/venkatesh/VENKAT1/physics --db ~/srishti2.db --incremental
+
+python3 ~/srishti/aria_setup.py /media/venkatesh/WINDATA/fiction --db ~/srishti4.db --incremental
+
+
+ADD NEW DOMAIN SHELL (non-destructive, appends next r^n)
+================================================================
+
+python3 ~/srishti/aria_setup.py --add-domain lawbooks criminal,civil,family,property --db ~/srishti1.db
+
+NOTE: run same command on all four DBs if you want the domain in all of them.
+
+
+ADD NEW SUBDOMAIN TO EXISTING DOMAIN (non-destructive, new theta only)
+================================================================
+
+python3 ~/srishti/aria_setup.py --add-subdomain physics plasma_physics --keywords plasma,fusion,tokamak --db ~/srishti1.db
+
+python3 ~/srishti/aria_setup.py --add-subdomain medicine ayurveda_advanced --keywords panchakarma,rasayana --db ~/srishti1.db
+
+
+STATISTICS — CHECK DB CONTENTS
+================================================================
+
+python3 ~/srishti/aria_setup.py --stats --db ~/srishti1.db
+python3 ~/srishti/aria_setup.py --stats --db ~/srishti2.db
+python3 ~/srishti/aria_setup.py --stats --db ~/srishti3.db
+python3 ~/srishti/aria_setup.py --stats --db ~/srishti4.db
+
+
+START THE QUERY SERVER
+================================================================
+
+python3 ~/srishti/srishti_gate.py
+
+Browser opens automatically at http://localhost:7509
+Windows users: try http://127.0.0.1:7509 if localhost does not work
+
+
+FILE COUNT (sqlite3 direct)
+================================================================
+
+sqlite3 ~/srishti1.db "SELECT COUNT(*) FROM files;"
+sqlite3 ~/srishti2.db "SELECT COUNT(*) FROM files;"
+sqlite3 ~/srishti3.db "SELECT COUNT(*) FROM files;"
+sqlite3 ~/srishti4.db "SELECT COUNT(*) FROM files;"
+
+Visible files only (not silent):
+sqlite3 ~/srishti1.db "SELECT COUNT(*) FROM files WHERE silent=0;"
+
+Files per domain:
+sqlite3 ~/srishti1.db "SELECT domain, COUNT(*) FROM files WHERE silent=0 GROUP BY domain ORDER BY COUNT(*) DESC;"
+
+Multiple domains at once:
+sqlite3 ~/srishti3.db "SELECT domain, COUNT(*) FROM files WHERE domain IN ('science_fiction','fantasy','fiction','pictures_paintings') AND silent=0 GROUP BY domain ORDER BY COUNT(*) DESC;"
+
+Files in a specific domain:
+sqlite3 ~/srishti3.db "SELECT COUNT(*) FROM files WHERE domain='physics' AND silent=0;"
+
+
+VIEW UNCLASSIFIED FILES
+================================================================
+
+sqlite3 ~/srishti1.db "SELECT name, path FROM files WHERE domain='unclassified';"
+sqlite3 ~/srishti2.db "SELECT name, path FROM files WHERE domain='unclassified';"
+
+
+REMOVE A SINGLE FILE ENTRY FROM DB
+================================================================
+Use when you have deleted or moved a file from storage.
+
+sqlite3 ~/srishti1.db "DELETE FROM files WHERE path = '/media/venkatesh/DATA 1/Chemistry/filename.mp4';"
+
+
+REMOVE AN ENTIRE FOLDER FROM DB
+================================================================
+The domain shell stays. Only file entries are removed.
+Empty domain is fine — returns zero results, nothing breaks.
+
+sqlite3 ~/srishti1.db "DELETE FROM files WHERE path LIKE '/media/venkatesh/DATA 1/foldername/%';"
+
+sqlite3 ~/srishti2.db "DELETE FROM files WHERE path LIKE '/media/venkatesh/VENKAT1/foldername/%';"
+
+sqlite3 ~/srishti3.db "DELETE FROM files WHERE path LIKE '/media/venkatesh/DATA3/science fiction/Pyramid Scheme';"
+
+
+REMOVE GHOST ENTRIES (files deleted from disk but still in DB)
+================================================================
+Step 1 — verify how many will be affected before deleting:
+
+sqlite3 ~/srishti1.db "SELECT COUNT(*) FROM files WHERE NOT EXISTS (SELECT 1 FROM files f2 WHERE f2.path = files.path LIMIT 0);"
+
+Step 2 — remove system paths that should never have been indexed:
+
+sqlite3 ~/srishti1.db "DELETE FROM files WHERE path LIKE '/usr/%' OR path LIKE '/lib/%' OR path LIKE '%site-packages%' OR path LIKE '%dist-packages%';"
+
+Step 3 — remove srishti program files from DB if accidentally indexed:
+
+sqlite3 ~/srishti1.db "DELETE FROM files WHERE path LIKE '%/srishti/%';"
+sqlite3 ~/srishti2.db "DELETE FROM files WHERE path LIKE '%/srishti/%';"
+
+
+RENAME A FILE ENTRY (file moved or renamed on disk)
+================================================================
+
+sqlite3 ~/srishti1.db "UPDATE files SET path='/new/path/filename.ext', name='filename.ext' WHERE path='/old/path/filename.ext';"
+
+
+CHECK DISK SPACE
+================================================================
+
+df -h ~
+df -h /media/venkatesh/DATA\ 1
+df -h /media/venkatesh/VENKAT1
+df -h /media/venkatesh/WINDATA
+
+
+WHISPER COMMANDS (video/audio transcription for Maya)
+================================================================
+
+Scan all untranscribed lecture videos and queue them:
+python3 ~/maya/maya_whisper.py --scan
+
+Run one file from queue (foreground — watch temperature, Ctrl+C in cooling gap):
+python3 ~/maya/maya_whisper.py
+
+Run as daemon in background (one file, cool 3 min, repeat):
+python3 ~/maya/maya_whisper.py --daemon
+
+Check queue status:
+python3 ~/maya/maya_whisper.py --stats
+
+Manually add a file to queue:
+python3 ~/maya/maya_whisper.py --queue "/path/to/file.mp4"
+
+If terminated mid-transcription (lock file left behind):
+rm /tmp/maya_whisper.lock
+python3 ~/maya/maya_whisper.py
+
+EXCLUDED FROM WHISPER (music and AI models — no speech content):
+/media/venkatesh/VENKAT1/Music
+/media/venkatesh/VENKAT1/ai models
+
+
+HTML TO TEXT CONVERSION (lynx)
+================================================================
+
+Single file:
+lynx -dump filename.html > filename.txt
+lynx -dump "filename with spaces.html" > "output.txt"
+
+Entire folder:
+for f in *.html; do lynx -dump "$f" > "${f%.html}.txt"; done
+
+
+EBOOK FORMAT CONVERSION (calibre — install once)
+================================================================
+
+sudo apt install calibre
+sudo apt install archmage
+
+Convert .chm or .lit to text (calibre does this automatically during indexing):
+ebook-convert file.lit file.txt
+ebook-convert file.chm file.txt
+
+
+PARTITION MANAGEMENT
+================================================================
+
+Check all mounted partitions:
+ls /media/venkatesh/
+
+Check partition labels:
+lsblk -f
+
+Rename a partition label (unmount first):
+sudo e2label /dev/sdXN NEW_LABEL_NAME
+
+Unmount a partition:
+sudo umount /media/venkatesh/PARTITION_NAME
+
+Remount after relabelling:
+sudo mount /dev/sdXN /media/venkatesh/NEW_LABEL_NAME
+
+
+MAYA STARTUP SEQUENCE (always in this order)
+================================================================
+
+Terminal 1:   cd ~/maya && python3 larynx.py
+Terminal 2:   cd ~/maya && python3 maya_brain.py
+Terminal 3:   cd ~/maya && python3 maya_gate.py
+Browser:      http://localhost:7510
+
+Whisper (optional, run in background during cool hours):
+              python3 ~/maya/maya_whisper.py
+
+
+HEALTH CHECKS
+================================================================
+
+Srishti gate:   curl http://localhost:7509/health
+Maya gate:      curl http://localhost:7510/health
+Maya brain:     curl http://127.0.0.1:7511/ping
+Larynx:         curl http://127.0.0.1:7512/ping
+
+
+================================================================
+phi = 1.6180339887498948482...
+The intelligence is in the geometry.
+S bogom.
+================================================================
+
+IMPORTANT NOTE:
+================================================================
+
+one q just came up while i was consolidating thoughts for project maya now what will happen in proj srishti now maya is yet to get started so what will happen if i rename a folder in lets say for eg. in  DATA 1 ok biology to neurology
+
+7:45 AM
+Good question. Three things happen and you need to handle them in order.
+
+First — the files already in srishti1.db under biology stay exactly where they are. The database does not know you renamed the folder on disk. The paths in the database still say /media/venkatesh/DATA 1/biology/... but that path no longer exists. Those entries become ghost entries — in the database but the files unreachable by xdg-open.
+
+Second — if you run incremental after renaming, the indexer sees /media/venkatesh/DATA 1/neurology/ as a brand new folder. It classifies the files inside. neurology is a subdomain keyword of biology — so they still land at r(3) biology. Good. But now you have duplicates — the old ghost entries at the old path AND new entries at the new path.
+
+Third — the solution, in order:
+
+Step 1 — rename the folder on disk first.
+
+Step 2 — remove the old path entries from the database:
+
+bash
+sqlite3 ~/srishti1.db "DELETE FROM files WHERE path LIKE '/media/venkatesh/DATA 1/biology/%';"
+Step 3 — run incremental to add the files under their new path:
+
+bash
+python3 ~/srishti/aria_setup_prod5.py "/media/venkatesh/DATA 1/neurology" --db ~/srishti1.db --incremental
+The domain shell r(3) stays untouched throughout. Only the file entries change. The sphere itself is never disturbed — only the contents of the shell.
+
+This is also in the commands reference file under "Remove a folder entry" and "Incremental — add a single folder."
+
+IMPORTANT PLEASE READ AND EXECUTE CAREFULLY
+================================================================================
+Thursday 19 March 2026 11:36:37 PM
+
+The problem is clear. These are Windows driver files — .sys, .cat, .inf files — sitting inside a folder called "programs_db" in WINDATA. They should be silent, never shown in the GUI.
+But they are showing up under medicine. Why? Because their extensions — .sys, .cat, .inf — are not in the SILENT_EXT set in aria_setup_prod5.py. So Level 1c never fires for them. Then the classifier falls through to Level 3c and finds "ACPI" in the path — and ACPI sounds like medicine to the keyword matcher.
+Two fixes needed:
+One — add .sys, .cat, .inf, .drv, .dll to SILENT_EXT in aria_setup_prod5.py so they get caught at Level 1c and go to program_db silently.
+Two — add "programs_db" to PATH_NOISE so the classifier ignores that folder name entirely when matching domains.
+Then remove these ghost entries from srishti4.db and reindex WINDATA incrementally.
+The bash to remove them:
+bashsqlite3 ~/srishti4.db "DELETE FROM files WHERE path LIKE '%/programs_db/%' AND domain='medicine';"
+Then after fixing aria_setup_prod5.py:
+bashpython3 ~/srishti/aria_setup_prod5.py /media/venkatesh/WINDATA/programs_db --db ~/srishti4.db --incremental
+Shall I fix aria_setup_prod5.py now?
+
+You are out of free messages until 2:30 AM
+Upgrade
+===================================================================================

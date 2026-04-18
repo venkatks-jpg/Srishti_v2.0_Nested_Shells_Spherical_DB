@@ -1,0 +1,450 @@
+{
+  "production_domains": {
+    "phi": 1.618033988749895,
+    "note": "r values are fixed powers of phi. Never change. Never collide. Assigned once at domain creation. Source of truth for aria_setup.py and aria_incremental.py.",
+    "image_extensions": [
+      ".jpg", ".jpeg", ".jpe", ".jfif", ".jfi", ".png", ".gif", ".bmp",
+      ".tiff", ".tif", ".webp", ".svg", ".svgz", ".raw", ".cr2", ".cr3",
+      ".nef", ".nrw", ".arw", ".srf", ".sr2", ".orf", ".rw2", ".rwl",
+      ".dng", ".pef", ".ptx", ".raf", ".3fr", ".fff", ".iiq", ".cap",
+      ".eip", ".x3f", ".mrw", ".mef", ".kdc", ".dcs", ".dcr", ".erf",
+      ".heic", ".heif", ".avif", ".jxl", ".ico", ".cur", ".xcf", ".psd",
+      ".psb", ".ai", ".eps", ".cdr", ".wmf", ".emf", ".pcx",
+      ".JPG", ".JPEG", ".PNG", ".BMP", ".TIFF", ".TIF", ".GIF", ".WEBP", ".SVG"
+    ],
+    "compacted_extensions": [
+      ".zip", ".zipx", ".rar", ".r00", ".r01", ".r02", ".r03", ".r04",
+      ".r05", ".r06", ".r07", ".r08", ".r09", ".r10",
+      ".7z", ".7z.001", ".7z.002",
+      ".tar", ".tar.gz", ".tgz", ".tar.bz2", ".tbz2", ".tbz",
+      ".tar.xz", ".txz", ".tar.lz", ".tar.lzma", ".tar.zst",
+      ".gz", ".gzip", ".bz2", ".bzip2", ".xz", ".lzma", ".lz", ".lz4",
+      ".lzo", ".zst", ".zstd", ".br", ".sz", ".cab",
+      ".iso", ".img", ".bin", ".mdf", ".mds", ".nrg", ".ccd", ".cue",
+      ".toast", ".udf", ".isz", ".daa", ".cso", ".dmg",
+      ".pkg", ".mpkg", ".deb", ".rpm", ".apk", ".ipa",
+      ".arj", ".lzh", ".ace", ".z", ".Z"
+    ],
+    "program_db_extensions": [
+      ".py", ".pyc", ".pyo", ".pyw",
+      ".js", ".ts", ".jsx", ".tsx", ".mjs", ".cjs",
+      ".c", ".cpp", ".cc", ".cxx", ".c++", ".h", ".hpp", ".hxx",
+      ".java", ".class", ".jar", ".kotlin", ".kt", ".scala",
+      ".cs", ".vb", ".fs", ".fsi", ".fsx",
+      ".go", ".rs", ".rb", ".php", ".php3", ".php4", ".php5",
+      ".sh", ".bash", ".zsh", ".fish", ".ksh", ".csh",
+      ".bat", ".cmd", ".ps1", ".psm1", ".psd1",
+      ".lua", ".pl", ".perl", ".r", ".R", ".m", ".swift", ".dart",
+      ".asm", ".s", ".S",
+      ".sql", ".db", ".sqlite", ".sqlite3", ".db3", ".db-wal", ".db-shm",
+      ".mdb", ".accdb", ".mdf", ".ldf", ".ndf",
+      ".frm", ".ibd", ".myd", ".myi",
+      ".ora", ".dmp", ".fdb", ".gdb", ".dbf",
+      ".json", ".yaml", ".yml", ".toml", ".ini", ".cfg", ".conf",
+      ".xml", ".xsd", ".dtd", ".xslt",
+      ".css", ".less", ".scss", ".sass",
+      ".dll", ".exe", ".so", ".o", ".a", ".lib",
+      ".sys", ".cat", ".inf", ".drv", ".msi", ".reg",
+      ".gguf", ".bin", ".pt", ".pth", ".safetensors", ".ckpt",
+      ".pkl", ".pickle", ".h5", ".hdf5",
+      ".pem", ".key", ".crt", ".csr", ".p12", ".pfx",
+      ".log", ".lock", ".tmp", ".temp", ".bak", ".swp",
+      ".makefile", ".cmake", ".gradle", ".maven",
+      ".dockerfile", ".vagrantfile", ".terraform",
+      ".html", ".htm", ".xhtml",
+      ".typed", ".pyi", ".pyx", ".pxd"
+    ],
+    "domains": [
+      {
+        "r_index": 1,
+        "r_value": "phi^1 = 1.6180339887",
+        "domain": "physics",
+        "subdomains_theta": [
+          "mechanics", "kinematics", "dynamics", "statics", "gravitation",
+          "thermodynamics", "kinetic_theory", "statistical_mechanics",
+          "heat_conduction", "fluid_mechanics", "electrostatics",
+          "magnetostatics", "electrodynamics", "maxwell_equations",
+          "optics", "wave_mechanics", "acoustics", "sound", "relativity",
+          "special_relativity", "general_relativity", "quantum_mechanics",
+          "quantum_electrodynamics", "quantum_field_theory",
+          "particle_physics", "nuclear_physics", "atomic_physics",
+          "molecular_physics", "condensed_matter", "solid_state",
+          "plasma_physics", "astrophysics", "cosmology", "astronomy",
+          "celestial_mechanics", "biophysics", "geophysics",
+          "atmospheric_physics"
+        ]
+      },
+      {
+        "r_index": 2,
+        "r_value": "phi^2 = 2.6180339887",
+        "domain": "chemistry",
+        "subdomains_theta": [
+          "general_chemistry", "inorganic_chemistry", "organic_chemistry",
+          "physical_chemistry", "analytical_chemistry", "biochemistry",
+          "theoretical_chemistry", "computational_chemistry",
+          "electrochemistry", "photochemistry", "thermochemistry",
+          "kinetics", "chemical_equilibrium", "acid_base", "redox_reactions",
+          "periodic_table", "atomic_structure", "chemical_bonding",
+          "molecular_geometry", "spectroscopy", "chromatography",
+          "polymer_chemistry", "nuclear_chemistry", "environmental_chemistry",
+          "medicinal_chemistry", "food_chemistry", "materials_chemistry",
+          "surface_chemistry", "colloid_chemistry", "green_chemistry"
+        ]
+      },
+      {
+        "r_index": 3,
+        "r_value": "phi^3 = 4.2360679774",
+        "domain": "biology",
+        "subdomains_theta": [
+          "cell_biology", "molecular_biology", "genetics", "genomics",
+          "epigenetics", "evolution", "ecology", "taxonomy", "botany",
+          "zoology", "microbiology", "virology", "bacteriology", "mycology",
+          "parasitology", "immunology", "neurobiology",
+          "developmental_biology", "embryology", "histology", "cytology",
+          "biochemistry_biology", "biophysics_biology", "marine_biology",
+          "astrobiology", "ethology", "animal_behaviour",
+          "population_biology", "conservation_biology", "biotechnology",
+          "synthetic_biology", "systems_biology", "structural_biology",
+          "proteomics", "metabolomics", "bioinformatics"
+        ]
+      },
+      {
+        "r_index": 4,
+        "r_value": "phi^4 = 6.8541019662",
+        "domain": "mathematics",
+        "subdomains_theta": [
+          "arithmetic", "algebra", "linear_algebra", "abstract_algebra",
+          "calculus", "differential_calculus", "integral_calculus",
+          "multivariable_calculus", "differential_equations",
+          "partial_differential_equations", "real_analysis",
+          "complex_analysis", "functional_analysis", "topology",
+          "differential_geometry", "algebraic_geometry", "number_theory",
+          "combinatorics", "graph_theory", "set_theory", "logic",
+          "mathematical_logic", "probability_theory", "statistics",
+          "stochastic_processes", "numerical_methods", "optimization",
+          "game_theory", "information_theory", "cryptography",
+          "category_theory", "chaos_theory", "fractal_geometry",
+          "mathematical_physics"
+        ]
+      },
+      {
+        "r_index": 5,
+        "r_value": "phi^5 = 11.0901699437",
+        "domain": "science_fiction",
+        "subdomains_theta": [
+          "hard_scifi", "soft_scifi", "space_opera", "cyberpunk",
+          "steampunk", "biopunk", "solarpunk", "dystopia", "utopia",
+          "post_apocalyptic", "time_travel", "parallel_universes",
+          "first_contact", "alien_civilisations",
+          "artificial_intelligence_fiction", "robot_fiction",
+          "genetic_engineering_fiction", "nanotechnology_fiction",
+          "military_scifi", "social_scifi", "psychological_scifi",
+          "short_stories_scifi", "anthologies_scifi",
+          "asimov", "clarke", "heinlein", "dick", "le_guin",
+          "banks", "hamilton", "reynolds", "baxter", "bear"
+        ]
+      },
+      {
+        "r_index": 6,
+        "r_value": "phi^6 = 17.9442719499",
+        "domain": "fantasy",
+        "subdomains_theta": [
+          "high_fantasy", "low_fantasy", "epic_fantasy", "dark_fantasy",
+          "urban_fantasy", "portal_fantasy", "sword_and_sorcery",
+          "mythic_fantasy", "fairy_tale", "folklore", "grimdark",
+          "heroic_fantasy", "comic_fantasy", "historical_fantasy",
+          "romantic_fantasy", "children_fantasy",
+          "tolkien", "jordan", "martin", "pratchett", "sanderson",
+          "eddings", "feist", "dragonlance", "forgotten_realms",
+          "wheel_of_time", "discworld", "malazan",
+          "magic_systems", "world_building", "mythology_based"
+        ]
+      },
+      {
+        "r_index": 7,
+        "r_value": "phi^7 = 29.0344418537",
+        "domain": "pictures_paintings",
+        "subdomains_theta": [
+          "renaissance", "baroque", "impressionism", "post_impressionism",
+          "expressionism", "cubism", "surrealism", "abstract", "realism",
+          "romanticism", "neoclassicism", "modernism", "contemporary",
+          "digital_art", "photography", "sculpture", "architecture_art",
+          "illustration", "comic_art", "manga_art", "animation_art",
+          "iconography", "miniature_painting", "fresco", "watercolour",
+          "oil_painting", "charcoal_sketch", "indian_classical_art",
+          "mughal_painting", "tanjore_painting", "western_classical_art",
+          "eastern_art", "islamic_art"
+        ]
+      },
+      {
+        "r_index": 8,
+        "r_value": "phi^8 = 46.9787137084",
+        "domain": "medicine",
+        "subdomains_theta": [
+          "anatomy", "physiology", "pathology", "pharmacology", "surgery",
+          "internal_medicine", "cardiology", "neurology", "psychiatry",
+          "psychology", "oncology", "immunology_medicine", "endocrinology",
+          "gastroenterology", "pulmonology", "nephrology", "urology",
+          "gynaecology", "obstetrics", "paediatrics", "geriatrics",
+          "ophthalmology", "otolaryngology", "dermatology", "orthopaedics",
+          "radiology", "anaesthesiology", "emergency_medicine",
+          "forensic_medicine", "epidemiology", "public_health", "nutrition",
+          "ayurveda", "homeopathy", "acupuncture",
+          "traditional_chinese_medicine", "unani", "siddha",
+          "naturopathy", "yoga_therapy"
+        ]
+      },
+      {
+        "r_index": 9,
+        "r_value": "phi^9 = 75.0130719619",
+        "domain": "religion",
+        "subdomains_theta": [
+          "hinduism", "vedanta", "shaivism", "vaishnavism", "shaktism",
+          "smarta", "tantra", "yoga_philosophy", "buddhism", "theravada",
+          "mahayana", "vajrayana", "zen", "tibetan_buddhism",
+          "christianity", "catholicism", "protestantism",
+          "orthodox_christianity", "islam", "sunni", "shia", "sufism",
+          "judaism", "sikhism", "jainism", "zoroastrianism", "taoism",
+          "confucianism", "shinto", "paganism", "shamanism",
+          "comparative_religion", "mysticism", "sacred_texts",
+          "theology", "religious_philosophy", "spirituality"
+        ]
+      },
+      {
+        "r_index": 10,
+        "r_value": "phi^10 = 122.9918856703",
+        "domain": "philosophy",
+        "subdomains_theta": [
+          "metaphysics", "ontology", "epistemology", "logic_philosophy",
+          "ethics", "moral_philosophy", "political_philosophy",
+          "philosophy_of_mind", "consciousness_studies",
+          "philosophy_of_science", "philosophy_of_language",
+          "philosophy_of_mathematics", "aesthetics", "existentialism",
+          "phenomenology", "hermeneutics", "analytic_philosophy",
+          "continental_philosophy", "pragmatism", "stoicism",
+          "epicureanism", "scepticism", "idealism", "materialism",
+          "dualism", "monism", "eastern_philosophy", "indian_philosophy",
+          "vedic_philosophy", "samkhya", "nyaya", "vaisheshika",
+          "mimamsa", "advaita", "dvaita", "vishishtadvaita",
+          "greek_philosophy", "medieval_philosophy", "modern_philosophy"
+        ]
+      },
+      {
+        "r_index": 11,
+        "r_value": "phi^11 = 199.0050423778",
+        "domain": "history",
+        "subdomains_theta": [
+          "ancient_history", "prehistoric", "mesopotamia", "egypt",
+          "greece", "rome", "persia", "india_ancient", "china_ancient",
+          "medieval_history", "byzantine", "islamic_golden_age",
+          "crusades", "feudalism", "renaissance_history",
+          "age_of_exploration", "colonialism", "industrial_revolution",
+          "modern_history", "world_war_1", "world_war_2", "cold_war",
+          "indian_history", "mughal_empire", "british_raj",
+          "independence_movement", "russian_history", "chinese_history",
+          "african_history", "american_history", "latin_american_history",
+          "history_of_science", "history_of_medicine",
+          "history_of_philosophy", "archaeology", "numismatics"
+        ]
+      },
+      {
+        "r_index": 12,
+        "r_value": "phi^12 = 322.9969696045",
+        "domain": "geography",
+        "subdomains_theta": [
+          "physical_geography", "human_geography", "geomorphology",
+          "climatology", "meteorology", "oceanography", "hydrology",
+          "glaciology", "biogeography", "soil_science", "cartography",
+          "gis", "urban_geography", "rural_geography",
+          "economic_geography", "political_geography",
+          "cultural_geography", "historical_geography",
+          "regional_geography", "india_geography", "asia_geography",
+          "europe_geography", "africa_geography", "americas_geography",
+          "polar_geography", "plate_tectonics", "volcanology",
+          "seismology", "environmental_geography", "population_geography"
+        ]
+      },
+      {
+        "r_index": 13,
+        "r_value": "phi^13 = 521.0019392423",
+        "domain": "music",
+        "subdomains_theta": [
+          "carnatic_classical", "hindustani_classical", "western_classical",
+          "opera", "chamber_music", "orchestral", "baroque_music",
+          "renaissance_music", "romantic_music", "jazz", "blues", "folk",
+          "world_music", "electronic_music", "ambient", "new_age",
+          "rock", "progressive_rock", "metal", "pop", "soul",
+          "rhythm_and_blues", "film_music", "soundtrack", "instrumental",
+          "music_theory", "harmony", "counterpoint", "rhythm", "melody",
+          "composition", "music_history", "ethnomusicology",
+          "acoustics_music"
+        ]
+      },
+      {
+        "r_index": 14,
+        "r_value": "phi^14 = 843.9988465132",
+        "domain": "computer_science",
+        "subdomains_theta": [
+          "algorithms", "data_structures", "complexity_theory",
+          "computability", "programming_languages", "compilers",
+          "operating_systems", "computer_architecture", "computer_networks",
+          "distributed_systems", "database_systems", "information_retrieval",
+          "artificial_intelligence", "machine_learning", "deep_learning",
+          "natural_language_processing", "computer_vision", "robotics_cs",
+          "expert_systems", "software_engineering", "software_design",
+          "design_patterns", "human_computer_interaction", "graphics",
+          "visualisation", "cryptography_cs", "information_security",
+          "cybersecurity", "quantum_computing", "parallel_computing",
+          "embedded_systems", "internet_of_things", "linux", "python",
+          "javascript", "systems_programming"
+        ]
+      },
+      {
+        "r_index": 15,
+        "r_value": "phi^15 = 1364.0007857555",
+        "domain": "astrology",
+        "subdomains_theta": [
+          "jyotish", "vedic_astrology", "western_astrology",
+          "chinese_astrology", "hellenistic_astrology", "natal_chart",
+          "kundali", "horoscope", "rashi", "nakshatra", "dasha", "graha",
+          "transit", "progression", "synastry", "mundane_astrology",
+          "medical_astrology", "electional_astrology", "horary_astrology",
+          "planets", "sun_signs", "moon_signs", "ascendant", "houses",
+          "aspects", "panchanga", "muhurta", "remedies", "numerology",
+          "tarot", "divination"
+        ]
+      },
+      {
+        "r_index": 16,
+        "r_value": "phi^16 = 2207.9996322687",
+        "domain": "electronics",
+        "subdomains_theta": [
+          "circuit_theory", "dc_circuits", "ac_circuits",
+          "network_analysis", "semiconductor_devices", "diodes",
+          "transistors", "mosfet", "igbt", "tunnel_diode",
+          "operational_amplifiers", "digital_electronics", "logic_gates",
+          "boolean_algebra", "flip_flops", "counters", "registers",
+          "microprocessors", "microcontrollers", "arduino", "raspberry_pi",
+          "embedded_programming", "signal_processing", "analog_signal",
+          "digital_signal", "communication_electronics", "rf_electronics",
+          "power_electronics", "control_systems", "sensors_actuators",
+          "instrumentation", "pcb_design", "vlsi",
+          "nanotechnology_electronics", "photonics", "quantum_electronics"
+        ]
+      },
+      {
+        "r_index": 17,
+        "r_value": "phi^17 = 3571.9984180242",
+        "domain": "fiction",
+        "note": "science_fiction and fantasy are separate domains r(5) and r(6). These subdomains are genre classifications within plain fiction only.",
+        "subdomains_theta": [
+          "detective_mystery",
+          "thriller_suspense",
+          "romance",
+          "historical_fiction",
+          "adventure",
+          "children_young_adult",
+          "classical_literature",
+          "psychological_fiction",
+          "horror_gothic",
+          "biographical_fiction",
+          "mythology_folklore",
+          "humour_satire",
+          "war_military_fiction",
+          "indian_fiction",
+          "short_stories_anthology"
+        ]
+      },
+      {
+        "r_index": 18,
+        "r_value": "phi^18 = 5777.9996502929",
+        "domain": "engineering_technology",
+        "subdomains_theta": [
+          "mechanical_engineering", "civil_engineering",
+          "electrical_engineering", "chemical_engineering",
+          "aerospace_engineering", "materials_science", "manufacturing",
+          "structural_engineering", "thermodynamics_engineering",
+          "fluid_dynamics", "control_engineering", "robotics",
+          "nanotechnology", "environmental_engineering",
+          "biomedical_engineering", "industrial_engineering",
+          "systems_engineering", "telecommunications",
+          "signal_processing_eng", "power_systems"
+        ]
+      },
+      {
+        "r_index": 19,
+        "r_value": "phi^19 = 9349.9980683171",
+        "domain": "languages",
+        "subdomains_theta": [
+          "english_grammar", "english_literature", "russian", "sanskrit",
+          "tamil", "hindi", "latin", "greek_classical", "arabic",
+          "french", "german", "spanish", "portuguese", "japanese",
+          "chinese_mandarin", "linguistics", "etymology", "phonetics",
+          "semantics", "translation", "dictionaries", "thesaurus",
+          "vocabulary"
+        ]
+      },
+      {
+        "r_index": 20,
+        "r_value": "phi^20 = 15127.9976685100",
+        "domain": "compacted_files",
+        "note": "All compressed archives. Visible in GUI. No keyword classification needed — extension decides.",
+        "subdomains_theta": [
+          "zip_archives", "rar_archives", "tar_archives", "7z_archives",
+          "gz_archives", "iso_images", "disk_images"
+        ]
+      },
+      {
+        "r_index": 21,
+        "r_value": "phi^21 = 24476.9957368271",
+        "domain": "program_db",
+        "note": "All code, scripts, databases, binaries. Silent — stored but never shown in GUI. Extension decides.",
+        "subdomains_theta": [
+          "python_scripts", "javascript_code", "c_cpp_code", "java_code",
+          "shell_scripts", "database_files", "compiled_binaries",
+          "configuration_files", "web_code", "ml_model_files",
+          "ansible_files", "makefile_cmake", "gradle_maven",
+          "log_files", "lock_files", "temp_files", "web_css_scss",
+          "web_assets"
+        ]
+      },
+      {
+        "r_index": 22,
+        "r_value": "phi^22 = 39603.9934053371",
+        "domain": "films_serials",
+        "note": "Video files classified here by folder or title. Extension alone never decides domain for video.",
+        "subdomains_theta": [
+          "documentary", "feature_film", "serial", "miniseries",
+          "animation", "anime", "bollywood", "hollywood", "tollywood",
+          "world_cinema", "television", "sitcom", "cartoon"
+        ]
+      },
+      {
+        "r_index": 23,
+        "r_value": "phi^23 = 64079.9868106742",
+        "domain": "miscellaneous",
+        "note": "Honest fallback. Never forced. Files land here when classification genuinely fails.",
+        "subdomains_theta": [
+          "unclassified_documents", "mixed_content", "personal_files",
+          "scanned_documents", "ocr_output", "architectural_drawings",
+          "engineering_drawings", "technical_manuals"
+        ]
+      },
+      {
+        "r_index": 24,
+        "r_value": "phi^24 = 103681.9802160113",
+        "domain": "encyclopaedia_dictionary",
+        "note": "Reference works. Used by PRISM/SPASM as comparison baseline for classification.",
+        "subdomains_theta": [
+          "general_encyclopaedia", "science_encyclopaedia",
+          "medical_dictionary", "science_dictionary", "physics_dictionary",
+          "chemistry_dictionary", "biology_dictionary",
+          "mathematics_dictionary", "computer_dictionary",
+          "engineering_dictionary", "law_dictionary", "language_dictionary",
+          "thesaurus_reference", "atlas_gazetteer", "almanac",
+          "handbook_reference", "style_guides"
+        ]
+      }
+    ]
+  }
+}
